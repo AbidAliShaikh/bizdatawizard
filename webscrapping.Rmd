@@ -1,3 +1,7 @@
+
+
+
+```{r}
 library(xml2)
 library(httr)
 library(rvest)
@@ -47,3 +51,4 @@ pic1ocr <- magick::image_ocr(pic1)
 cat(image_ocr(pic1))
 
 ##############CASE STUDY 1 HEALTH CARE DATA ##################
+```

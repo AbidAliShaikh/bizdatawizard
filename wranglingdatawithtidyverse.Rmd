@@ -1,3 +1,4 @@
+```{r}
 library(tidyverse)  
 
 library(forcats)
@@ -42,5 +43,5 @@ chickwts |>ggplot(aes(fct_reorder(feed,weight),weight))+geom_boxplot()
 # fct_reorder or reorder allows you to re-level a factor based on a secondary numeric variable
 plotly::ggplotly()
 
-
+```
 

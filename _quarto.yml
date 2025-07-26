@@ -14,14 +14,12 @@ website:
         href: Regressionanalysis.qmd
       - text: "Git Setup"
         href: GitSetup.qmd
-      - text: "Dark Theme"
-        href: NewThemic.qmd
       - text: "Analysis"
         menu:
           - text: "Web Scrapping"
-            href: webscrapping.r
+            href: webscrapping.Rmd
           - text: "Wrangling Data"
-            href: wranglingdatawithtidyverse.r
+            href: wranglingdatawithtidyverse.Rmd
           - text: "Exploratory Analysis"
             href: StatisticswithR.qmd
           - text: "Practice"

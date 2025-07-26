@@ -1,22 +1,21 @@
 chickwts %>%
   mutate(wt_recode = ifelse(weight<=200,"low","hi"),
   
-         wt_recode=factor(wt_recode)) 
-  tabyl(wt_recode)
+         wt_recode=factor(wt_recode)) # %>% table(wt_recode)
 #################
   library(lubridate)
   
  my_date= mdy("september 29st 2020")
 mdy_hms("july 20th 2020 20:20")  
 
-wday(my_date, label=T)
+wday(my_date)
 year(my_date)
 mday(my_date)
 wday(my_date)
 birth_day=make_date("1969","12","2")
-wday(birth_day,label=T)
+wday(birth_day)
 birth_day_w <- make_date("1984","4","8")
-wday(birth_day_w,label=T)
+wday(birth_day_w)
 p = (birth_day_w-birth_day)
 lubridate::as.duration(p)
 #######################################
@@ -121,7 +120,7 @@ poem_words <- poems %>%
   tidytext::unnest_tokens(input = text, output=word) %>%
   count(title, word,sort=T)
 
-total_words <- poem_words %>% 
+total <- total_words <- poem_words %>% 
   group_by(title) %>% 
   summarize(total = sum(n))
 
@@ -131,7 +130,9 @@ poem_words<- poem_words %>%
   # which is important to consider when you’re comparing relative frequency between documents.
 
 library(ggplot2)
-
+poem_words <- poems %>%
+  tidytext::unnest_tokens(input = text, output=word) %>%
+  count(title, word,sort=T)
 poem_words %>%
   ggplot(aes(n/total, fill=title)) +
   geom_histogram(show.legend = F, bins=5)+
@@ -152,6 +153,9 @@ poem_words %>%
   arrange(desc(tf_idf))
 # If we had removed stop words, we would have lost the fact that some common words 
 # are really unique in one of these poems relative to the others.
+poem_words <- poems %>%
+  tidytext::unnest_tokens(input = text, output=word) %>%
+  count(title, word,sort=T)
 
 poem_words %>%
   arrange(desc(tf_idf)) %>%
